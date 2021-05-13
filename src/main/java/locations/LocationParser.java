@@ -12,7 +12,7 @@ public class LocationParser {
 
         try {
             String[] array = text.split(REGEX);
-            System.out.println(Arrays.toString(array));
+
             return new Location(array[0], Double.parseDouble(array[1]), Double.parseDouble(array[2]));
 
         } catch (NumberFormatException exp) {
