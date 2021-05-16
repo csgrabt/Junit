@@ -1,9 +1,9 @@
 package locations;
 
 public class Location {
-private String name;
-private double lat;
-private double lon;
+    private String name;
+    private double lat;
+    private double lon;
 
 
     public Location(String name, double lat, double lon) {
@@ -35,4 +35,13 @@ private double lon;
     public void setLon(double lon) {
         this.lon = lon;
     }
+
+    public boolean isOnEquator() {
+        return lat == 0;
+    }
+
+    public boolean isOnPrimeMeridian() {
+        return lon == 0;
+    }
+
 }
