@@ -1,6 +1,5 @@
 package locations;
 
-import java.util.Arrays;
 
 public class LocationParser {
 
@@ -12,9 +11,10 @@ public class LocationParser {
 
         try {
             String[] array = text.split(REGEX);
-
-            return new Location(array[0], Double.parseDouble(array[1]), Double.parseDouble(array[2]));
-
+            if (array.length == 3) {
+                return new Location(array[0], Double.parseDouble(array[1]), Double.parseDouble(array[2]));
+            }
+            return new Location(array[0], Double.parseDouble(array[1]), Double.parseDouble(array[2]), Double.parseDouble(array[3]));
         } catch (NumberFormatException exp) {
             throw new IllegalArgumentException("Something went wrong", exp);
         }
@@ -28,7 +28,7 @@ public class LocationParser {
                 counter++;
             }
         }
-        if (counter != 2) {
+        if (counter != 2 && counter != 3) {
             throw new IllegalArgumentException("Not valid input format!");
         }
     }
